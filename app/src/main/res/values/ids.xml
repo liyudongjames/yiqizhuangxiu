@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="branch_cancel" type="id" />
+    <item name="guide_sex_check" type="id" />
+    <item name="guide_sex_check_male" type="id" />
+    <item name="guide_sex_check_female" type="id" />
+    <item name="guide_datepiker" type="id" />
+    <item name="guide_fitmenting_text" type="id" />
+    <item name="guide_fitmenting_radioBtn" type="id" />
+    <item name="guide_planfitment_radioBtn" type="id" />
+    <item name="guide_is_living_radioBtn" type="id" />
+    <item name="guide_noplan_radioBtn" type="id" />
+    <item name="guide_plan_fitment_radioGroup" type="id" />
+    <item name="guide_plan_fitment_thisyear" type="id" />
+    <item name="guide_plan_fitment_nextyear" type="id" />
+    <item name="guide_plan_fitment_nextnextyear" type="id" />
+    <item name="guide_enter_fitment" type="id" />
+</resources>
