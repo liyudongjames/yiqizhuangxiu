@@ -1,4 +1,4 @@
-package com.bwf.yiqizhuang;
+package com.bwf.yiqizhuang.framework.mvp.base;
 
 import android.app.Application;
 

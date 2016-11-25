@@ -1,5 +1,6 @@
 package com.bwf.yiqizhuang.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -63,12 +64,16 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void initDatas() {
-
+        mYear = guideDatepiker.getYear();
+        mMonth = guideDatepiker.getMonth() + 1;
+        mDay = guideDatepiker.getDayOfMonth();
     }
 
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+        setTextClickable(false);
+        textOnclick();
         flexibalListener();
         setEnterButton();
     }
@@ -96,13 +101,6 @@ public class GuideActivity extends BaseActivity {
         return false;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
-
     private void setEnterButton(){
         if (isSexCheck() && isPlaningCheck()) {
             guideEnterFitment.setClickable(true);
@@ -115,7 +113,6 @@ public class GuideActivity extends BaseActivity {
         }
     }
 
-
     public void flexibalListener(){
         guideSexCheck.setOnCheckedChangeListener(new onRadioClickListener());
         guidePlanFitmentRadioGroup.setOnCheckedChangeListener(new onRadioClickListener());
@@ -123,7 +120,7 @@ public class GuideActivity extends BaseActivity {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 mYear = year;
-                mMonth = monthOfYear;
+                mMonth = monthOfYear + 1;
                 mDay = dayOfMonth;
             }
         });
@@ -146,8 +143,14 @@ public class GuideActivity extends BaseActivity {
         guidePlanfitmentRadioBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked)
-                    fitmentPlan = guidePlanfitmentRadioBtn.getText().toString();
+                if(isChecked) {
+                    changeFitmentPlanTextColor(0);
+                    setTextClickable(true);
+                    fitmentPlan = guidePlanfitmentRadioBtn.getText().toString() + guidePlanFitmentThisyear.getText().toString();
+                }else {
+                    changeFitmentPlanTextColor(4);
+                    setTextClickable(false);
+                }
             }
         });
 
@@ -175,9 +178,73 @@ public class GuideActivity extends BaseActivity {
             }
         });
         guideEnterFitment.setOnClickListener(new onEnterButtonClickListener());
-        
+
     }
 
+    public void textOnclick(){
+        guidePlanFitmentThisyear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv = (TextView) v;
+                changeFitmentPlanTextColor(0);
+                setfitmentPlaning(tv);
+            }
+        });
+
+        guidePlanFitmentNextyear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv = (TextView) v;
+                changeFitmentPlanTextColor(1);
+                setfitmentPlaning(tv);
+            }
+        });
+
+        guidePlanFitmentNextnextyear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv = (TextView) v;
+                changeFitmentPlanTextColor(2);
+                setfitmentPlaning(tv);
+            }
+        });
+    }
+
+    public void setfitmentPlaning(TextView view){
+        fitmentPlan = guidePlanfitmentRadioBtn.getText().toString();
+        fitmentPlan += view.getText().toString();
+    }
+
+    public void changeFitmentPlanTextColor(int i){
+        switch (i){
+            case 0:
+                guidePlanFitmentThisyear.setTextColor(getResources().getColor(R.color.darker_green));
+                guidePlanFitmentNextnextyear.setTextColor(Color.BLACK);
+                guidePlanFitmentNextyear.setTextColor(Color.BLACK);
+                break;
+            case 1:
+                guidePlanFitmentNextyear.setTextColor(getResources().getColor(R.color.darker_green));
+                guidePlanFitmentNextnextyear.setTextColor(Color.BLACK);
+                guidePlanFitmentThisyear.setTextColor(Color.BLACK);
+                break;
+            case 2:
+                guidePlanFitmentNextnextyear.setTextColor(getResources().getColor(R.color.darker_green));
+                guidePlanFitmentThisyear.setTextColor(Color.BLACK);
+                guidePlanFitmentNextyear.setTextColor(Color.BLACK);
+                break;
+            default:
+                guidePlanFitmentNextnextyear.setTextColor(Color.BLACK);
+                guidePlanFitmentThisyear.setTextColor(Color.BLACK);
+                guidePlanFitmentNextyear.setTextColor(Color.BLACK);
+                break;
+        }
+    }
+
+    public void setTextClickable(boolean flag){
+        guidePlanFitmentThisyear.setClickable(flag);
+        guidePlanFitmentNextyear.setClickable(flag);
+        guidePlanFitmentNextnextyear.setClickable(flag);
+    }
 
     class onRadioClickListener implements RadioGroup.OnCheckedChangeListener {
 
@@ -190,7 +257,16 @@ public class GuideActivity extends BaseActivity {
     class onEnterButtonClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-            Toast.makeText(GuideActivity.this, mYear + mMonth + mDay + sex + fitmentPlan, Toast.LENGTH_SHORT).show();
+            Toast.makeText(GuideActivity.this, mYear+ " " + mMonth + " " + mDay + " " + sex + " " + fitmentPlan, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(GuideActivity.this,MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("year",mYear);
+            bundle.putInt("month",mMonth);
+            bundle.putInt("day",mDay);
+            bundle.putString("sex",sex);
+            bundle.putString("fitmentPlan",fitmentPlan);
+            intent.putExtra("data",bundle);
+            startActivity(intent);
         }
     }
 

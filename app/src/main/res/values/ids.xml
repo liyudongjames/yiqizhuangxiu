@@ -15,4 +15,9 @@
     <item name="guide_plan_fitment_nextyear" type="id" />
     <item name="guide_plan_fitment_nextnextyear" type="id" />
     <item name="guide_enter_fitment" type="id" />
+    <item name="main_fragment_tabhost" type="id" />
+    <item name="main_fragment_container" type="id" />
+    <item name="main_tabhost_tab" type="id" />
+    <item name="tab_content_img" type="id" />
+    <item name="tab_content_text" type="id" />
 </resources>

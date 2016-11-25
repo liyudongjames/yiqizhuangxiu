@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Administrator on 2016/11/23.
  */
@@ -20,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //为Activity绑定xml视图
         setContentView(getContentViewResId());
-
+        ButterKnife.bind(this);
         initViews(); //初始化控件
         initDatas();//初始化数据
     }
