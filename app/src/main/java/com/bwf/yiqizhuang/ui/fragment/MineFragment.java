@@ -12,4 +12,14 @@ public class MineFragment extends BaseFragment{
     protected int getContentViewResId() {
         return R.layout.fragment_mine;
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }

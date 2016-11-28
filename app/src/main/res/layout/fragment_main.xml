@@ -1,313 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.bwf.yiqizhuang.ui.initview.MyPullToRefresh xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_main_pullrefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/light_green"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/fragment_main_title_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:src="@mipmap/home_title_scan" />
-
-        <LinearLayout
-            android:id="@+id/fragment_main_title_search"
+        <com.bwf.yiqizhuang.ui.initview.MyScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:alpha="0.5"
-            android:background="@color/light_gray"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.bwf.yiqizhuang.ui.initview.AutoScrollViewPager
+                        android:id="@+id/fragment_main_viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="200.0dip">
+                    </com.bwf.yiqizhuang.ui.initview.AutoScrollViewPager>
+                    <LinearLayout
+                        android:id="@+id/fragment_main_LinearLayout_pager_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10.0dip"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="7.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:orientation="horizontal" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp" >
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_package_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_package_new" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="装修公司" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_activity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_activity" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="同城活动" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_school"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_school" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="装修学堂" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_my_budget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_my_budget" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="装修预算" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_category"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_category" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="建材家具" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_renderings_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_renderings_new" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="效果图" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_self_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_self_order" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="自助下单" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fragment_main_feature_design_measure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/home_feature_design_measure" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="设计/量房" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/light_gray"></View>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </com.bwf.yiqizhuang.ui.initview.MyScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/light_green"
             android:orientation="horizontal"
             android:padding="5dp">
 
             <ImageView
+                android:id="@+id/fragment_main_title_scan"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="5dp"
-                android:src="@mipmap/home_search" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="5dp"
-                android:gravity="center_vertical"
-                android:text="搜索用户/帖子"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fragment_main_title_location"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="5dp"
-                android:gravity="center_vertical"
-                android:text="成都"
-                android:textColor="@android:color/white" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@mipmap/home_title_location_flag" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <com.bwf.yiqizhuang.ui.initview.MyScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.bwf.yiqizhuang.ui.initview.AutoScrollViewPager
-                    android:id="@+id/fragment_main_viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="200.0dip"></com.bwf.yiqizhuang.ui.initview.AutoScrollViewPager>
-
-                <LinearLayout
-                    android:id="@+id/fragment_main_LinearLayout_pager_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10.0dip"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="7.0dip"
-                    android:layout_marginTop="10.0dip"
-                    android:orientation="horizontal" />
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0"
+                android:src="@mipmap/home_title_scan" />
 
             <LinearLayout
+                android:id="@+id/fragment_main_title_search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:alpha="0.5"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-                <LinearLayout
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/home_search" />
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="搜索用户/帖子"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_package_new"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
+            <LinearLayout
+                android:id="@+id/fragment_main_title_location"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_package_new" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="装修公司" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_activity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_activity" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="同城活动" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_school"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_school" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="装修学堂" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_my_budget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_my_budget" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="装修预算" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="成都"
+                    android:textColor="@android:color/white" />
 
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_category"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_category" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="建材家具" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_renderings_new"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_renderings_new" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="效果图" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_self_order"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_self_order" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="自助下单" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/fragment_main_feature_design_measure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@mipmap/home_feature_design_measure" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="设计/量房" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/home_title_location_flag" />
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:background="@color/light_gray"></View>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </android.support.v7.widget.RecyclerView>
-
         </LinearLayout>
 
-    </com.bwf.yiqizhuang.ui.initview.MyScrollView>
-
+        <ProgressBar
+            android:id="@+id/fragment_main_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 </com.bwf.yiqizhuang.ui.initview.MyPullToRefresh>

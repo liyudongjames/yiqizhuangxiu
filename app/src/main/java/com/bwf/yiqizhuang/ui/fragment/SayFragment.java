@@ -14,4 +14,14 @@ public class SayFragment extends BaseFragment {
     protected int getContentViewResId() {
         return R.layout.fragment_say;
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }

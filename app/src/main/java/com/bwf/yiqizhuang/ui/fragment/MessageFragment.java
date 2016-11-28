@@ -12,4 +12,14 @@ public class MessageFragment extends BaseFragment{
     protected int getContentViewResId() {
         return R.layout.fragment_message;
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }

@@ -92,8 +92,6 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
             case "我的":
                 setImageView(3);
                 break;
-
-
         }
     }
 }
