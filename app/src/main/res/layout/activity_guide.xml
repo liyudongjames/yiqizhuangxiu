@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/white"
+    >
+
+    <ImageView
+        android:id="@+id/guide_activity_introduce_img"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@mipmap/introduce_logo"/>
+    <LinearLayout
+        android:id="@+id/guide_activity_know_you_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -176,3 +192,5 @@
         android:background="@color/light_green"
         android:layout_gravity="bottom"/>
 </LinearLayout>
+
+</FrameLayout>

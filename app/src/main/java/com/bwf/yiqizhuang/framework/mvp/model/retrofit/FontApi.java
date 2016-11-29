@@ -12,7 +12,7 @@ import rx.Observable;
  */
 //http://118.178.142.34/YiQiHouse/HomeAD
 public interface FontApi {
-    @GET("/AppManagerApi.php")
+    @GET("AppManagerApi.php")
     Observable<FontPagePagerResponse> getFront(@Query("version") int version
             ,@Query("action") String action,@Query("cityId") int cityId,@Query("model")String model);
 }

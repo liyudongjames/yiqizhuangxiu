@@ -132,7 +132,10 @@ public class MyPullToRefresh extends LinearLayout{
                 interMoveY = ev.getY();
                 downY = ev.getY();
                 float scaleY =  interDownY - interMoveY;
-                if(scaleY < 5 && canPull){
+                Log.d("MyPullToRefresh", "interDownY:" + interDownY);
+                Log.d("MyPullToRefresh", "interMoveY:" + interMoveY);
+                Log.d("MyPullToRefresh", "scaleY:" + scaleY);
+                if(scaleY < -5 && canPull){
                     return true;
                 }
                 break;

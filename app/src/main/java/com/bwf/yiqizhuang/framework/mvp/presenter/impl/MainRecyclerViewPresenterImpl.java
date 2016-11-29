@@ -20,7 +20,6 @@ public class MainRecyclerViewPresenterImpl implements MainRecyclerViewPresenter,
     private int type;
     private int page;
 
-
     public MainRecyclerViewPresenterImpl(MainRecyclerView view){
         this.view = view;
         model = new MainRecyclerViewModelImpl();

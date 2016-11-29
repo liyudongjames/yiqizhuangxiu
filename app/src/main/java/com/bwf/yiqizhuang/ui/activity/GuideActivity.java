@@ -1,6 +1,8 @@
 package com.bwf.yiqizhuang.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 
 import com.bwf.yiqizhuang.R;
 import com.bwf.yiqizhuang.framework.mvp.base.BaseActivity;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,18 +61,44 @@ public class GuideActivity extends BaseActivity {
     TextView guidePlanFitmentNextnextyear;
     @BindView(R.id.guide_enter_fitment)
     Button guideEnterFitment;
+    @BindView(R.id.guide_activity_know_you_layout)
+    LinearLayout guideActivityKnowYouLayout;
 
     private String sex;
     private int mYear;
     private int mMonth;
     private int mDay;
     private String fitmentPlan;
-
+    public final String PREFS_NAME = "Note.sample.roiding.com";
+    private boolean isFirst;
     @Override
     protected void initDatas() {
         mYear = guideDatepiker.getYear();
         mMonth = guideDatepiker.getMonth() + 1;
         mDay = guideDatepiker.getDayOfMonth();
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        isFirst = settings.getBoolean("isFirst", false);
+        if(isFirst == false){
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("isFirst",true);
+            editor.commit();
+        }else{
+            guideActivityKnowYouLayout.setVisibility(View.GONE);
+            getHomeActivity();
+        }
+    }
+
+    private void getHomeActivity() {
+        Timer timer=new Timer();
+        TimerTask task=new TimerTask(){
+            public void run(){
+                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            }
+        };
+        timer.schedule(task, 2500);
     }
 
     @Override

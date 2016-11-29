@@ -10,6 +10,7 @@
         android:layout_height="match_parent">
 
         <com.bwf.yiqizhuang.ui.initview.MyScrollView
+            android:id="@+id/fragment_main_scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible">
@@ -236,17 +237,23 @@
                     android:layout_height="15dp"
                     android:background="@color/light_gray"></View>
 
-                <android.support.v7.widget.RecyclerView
+                <RelativeLayout
+                    android:descendantFocusability="blocksDescendants"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_main_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                </android.support.v7.widget.RecyclerView>
-
+                    </android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
             </LinearLayout>
 
         </com.bwf.yiqizhuang.ui.initview.MyScrollView>
 
         <LinearLayout
+            android:id="@+id/fragment_main_title_linearLayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"

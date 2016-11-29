@@ -17,7 +17,7 @@ import rx.schedulers.Schedulers;
  */
 
 public class MainViewPagerModelImpl implements MainViewPagerModel{
-    public String baseUrl = "http://appapi.17house.com";
+    public String baseUrl = "http://appapi.17house.com/";
     @Override
     public void startViewPager(final ModelBaseCallBack<FontPagePagerResponse> callBack) {
         Retrofit retrofit = new Retrofit.Builder()
