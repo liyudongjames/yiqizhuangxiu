@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".ui.activity.MainActivity"></activity>
         <activity android:name=".ui.activity.CompanyActivity"></activity>
+        <activity android:name=".ui.activity.HtmlNewActivity"></activity>
+        <activity android:name=".ui.activity.HtmlOldActivity"></activity>
     </application>
 
 </manifest>

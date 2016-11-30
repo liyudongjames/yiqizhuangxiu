@@ -1,5 +1,7 @@
 package com.bwf.yiqizhuang.framework.mvp.model.impl;
 
+import android.util.Log;
+
 import com.bwf.yiqizhuang.framework.mvp.databean.CompanyViewPagerResponse;
 import com.bwf.yiqizhuang.framework.mvp.databean.FontPagePagerResponse;
 import com.bwf.yiqizhuang.framework.mvp.model.Callback.ModelBaseCallBack;
@@ -23,6 +25,7 @@ public class CompanyPagerModelImpl implements CompanyPagerModel{
     private String baseUrl = "http://appapi.17house.com/";
     @Override
     public void startGetPager(final ModelBaseCallBack<CompanyViewPagerResponse> callBack) {
+        Log.d("CompanyPagerModelImpl", "inter");
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -45,9 +48,9 @@ public class CompanyPagerModelImpl implements CompanyPagerModel{
 
                     @Override
                     public void onNext(CompanyViewPagerResponse companyViewPagerResponse) {
+                        Log.d("CompanyPagerModelImpl", "companyViewPagerResponse.getData().size():" + companyViewPagerResponse.getData().size());
                         callBack.onNext(companyViewPagerResponse);
                     }
                 });
-
     }
 }

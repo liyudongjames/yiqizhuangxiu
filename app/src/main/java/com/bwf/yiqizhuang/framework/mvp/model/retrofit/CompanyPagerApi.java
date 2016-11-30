@@ -10,6 +10,7 @@ import com.bwf.yiqizhuang.framework.mvp.databean.FontPagePagerResponse;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**

@@ -28,11 +28,13 @@
     </RelativeLayout>
 
     <com.bwf.yiqizhuang.ui.initview.MyPullToRefresh
+        android:id="@+id/company_activity_myPullToRefresh"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.bwf.yiqizhuang.ui.initview.MyScrollView
+            android:id="@+id/company_activity_myScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -222,11 +224,11 @@
                     android:descendantFocusability="blocksDescendants"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/company_activity_recyclerView"
+                    <com.bwf.yiqizhuang.ui.initview.FullScreenListView
+                        android:id="@+id/company_activity_listView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                    </android.support.v7.widget.RecyclerView>
+                    </com.bwf.yiqizhuang.ui.initview.FullScreenListView>
                 </RelativeLayout>
             </LinearLayout>
         </com.bwf.yiqizhuang.ui.initview.MyScrollView>

@@ -7,8 +7,8 @@ import com.bwf.yiqizhuang.framework.mvp.databean.CompanyViewPagerResponse;
  */
 
 public interface CompanyViewPagerView {
-    void beforeRecyclerViewLoad();
-    void showRecyclerView(CompanyViewPagerResponse response);
-    void loadRecyclerViewComplete();
-    void loadRecyclerViewFailed(Throwable e);
+    void beforePagerViewLoad();
+    void showPagerView(CompanyViewPagerResponse response);
+    void loadPagerViewComplete();
+    void loadPagerViewFailed(Throwable e);
 }
