@@ -224,11 +224,11 @@
                     android:descendantFocusability="blocksDescendants"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <com.bwf.yiqizhuang.ui.initview.FullScreenListView
+                    <android.support.v7.widget.RecyclerView
                         android:id="@+id/company_activity_listView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                    </com.bwf.yiqizhuang.ui.initview.FullScreenListView>
+                    </android.support.v7.widget.RecyclerView>
                 </RelativeLayout>
             </LinearLayout>
         </com.bwf.yiqizhuang.ui.initview.MyScrollView>

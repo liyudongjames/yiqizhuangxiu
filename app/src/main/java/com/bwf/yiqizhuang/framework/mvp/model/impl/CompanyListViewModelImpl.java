@@ -6,6 +6,9 @@ import com.bwf.yiqizhuang.framework.mvp.model.CompanyListViewModel;
 import com.bwf.yiqizhuang.framework.mvp.model.retrofit.CompanyListViewApi;
 import com.bwf.yiqizhuang.framework.mvp.model.retrofit.CompanyPagerApi;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,10 +27,14 @@ import rx.schedulers.Schedulers;
  */
 public class CompanyListViewModelImpl implements CompanyListViewModel{
     private String baseUrl = "http://hui.17house.com/";
-
+    private int DEFAULT_TIMEOUT = 5;
     @Override
     public void startGetCompanyListViewData(final ModelBaseCallBack<CompanyListViewResponse> callBack) {
+        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
+        httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+
         Retrofit retrofit = new Retrofit.Builder()
+                .client(httpClientBuilder.build())
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

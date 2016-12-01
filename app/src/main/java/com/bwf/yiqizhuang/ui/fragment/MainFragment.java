@@ -86,6 +86,7 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
     private MainViewPagerAdapter pagerAdapter;
     private MainRecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager layoutManager;
+    private MainRecyclerViewResponse recyclerResponse;
 
     @Override
     protected int getContentViewResId() {
@@ -201,19 +202,20 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
 
     @Override
     public void showRecyclerView(MainRecyclerViewResponse response) {
-        recyclerViewAdapter.deleteAllData();
-        recyclerViewAdapter.addData(response.getData());
-        fragmentMainRecyclerView.setAdapter(recyclerViewAdapter);
+        recyclerResponse = response;
     }
 
     @Override
     public void loadRecyclerViewComplete() {
-
+        recyclerViewAdapter.deleteAllData();
+        recyclerViewAdapter.addData(recyclerResponse.getData());
+        fragmentMainRecyclerView.setAdapter(recyclerViewAdapter);
+        fragmentMainPullRefresh.refreshingComplete();
     }
 
     @Override
     public void loadRecyclerViewFailed(Throwable e) {
-
+        fragmentMainPullRefresh.refreshingComplete();
     }
 
     private void setClick(){

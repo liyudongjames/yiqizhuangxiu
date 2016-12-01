@@ -23,6 +23,7 @@
         <activity android:name=".ui.activity.CompanyActivity"></activity>
         <activity android:name=".ui.activity.HtmlNewActivity"></activity>
         <activity android:name=".ui.activity.HtmlOldActivity"></activity>
+        <activity android:name=".ui.activity.CompanySiteLiveActivity"></activity>
     </application>
 
 </manifest>

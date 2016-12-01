@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 
 import com.bwf.yiqizhuang.R;
+import com.bwf.yiqizhuang.framework.mvp.adapter.CompanyRecyclerViewAdapter;
 import com.bwf.yiqizhuang.framework.mvp.adapter.CompanyViewPagerAdapter;
 import com.bwf.yiqizhuang.framework.mvp.adapter.MyListViewAdapter;
 import com.bwf.yiqizhuang.framework.mvp.base.BaseActivity;
@@ -57,7 +59,7 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
     @BindView(R.id.company_activity_yiqi_group_layout)
     LinearLayout companyActivityYiqiGroupLayout;
     @BindView(R.id.company_activity_listView)
-    ListView companyActivityRecyclerView;
+    RecyclerView companyActivityRecyclerView;
     @BindView(R.id.company_activity_myScrollView)
     MyScrollView companyActivityMyScrollView;
     @BindView(R.id.company_activity_myPullToRefresh)
@@ -67,8 +69,9 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
     private CompanyViewPagerResponse response;
     private CompanyViewPagerAdapter viewPagerAdapter;
     private CompanyPagerPresnter pagerPresnter;
-    private MyListViewAdapter listViewAdapter;
+    private CompanyRecyclerViewAdapter recyclerViewAdapter;
     private CompanyListViewPresenter listViewPresenter;
+    private LinearLayoutManager layoutManager;
 
     @Override
     protected void initDatas() {
@@ -79,11 +82,24 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
         listViewPresenter = new CompanyListViewPresenterImpl();
         listViewPresenter.attachView(this);
         listViewPresenter.startData();
+        recyclerViewAdapter = new CompanyRecyclerViewAdapter(this);
+        layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        companyActivityMyPullToRefresh.setOnRefreshListener(new MyPullToRefresh.PullToRefreshListener() {
+            @Override
+            public void onRefreshing() {
+                pagerPresnter.startViewPager();
+                listViewPresenter.startData();
+            }
+        });
     }
 
     @Override
     protected void initViews() {
-        companyActivityRecyclerView.setDividerHeight(0);
         companyActivityMyScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
             @Override
             public void onScroll(int l, int t, int oldl, int oldt) {
@@ -119,6 +135,8 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
         viewPagerAdapter = new CompanyViewPagerAdapter(this,response.getData());
         pagerDotIndicator.setDotNums(response.getData().size());
         companyActivityScrollview.setAdapter(viewPagerAdapter);
+        companyActivityRecyclerView.setLayoutManager(layoutManager);
+        companyActivityRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
     @Override
@@ -135,17 +153,17 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
 
     @Override
     public void onShowListView(CompanyListViewResponse response) {
-        listViewAdapter = new MyListViewAdapter(this,response.getData());
+        recyclerViewAdapter.addData(response.getData());
     }
 
     @Override
     public void onCompleteListView() {
-        companyActivityRecyclerView.setAdapter(listViewAdapter);
+        companyActivityMyPullToRefresh.refreshingComplete();
     }
 
     @Override
     public void onFailedListView(Throwable e) {
-
+        companyActivityMyPullToRefresh.refreshingComplete();
     }
 
     public void onCLick(){
@@ -164,5 +182,14 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
                 startActivity(intent);
             }
         });
+
+        companyActivitySitePlayingLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyActivity.this,CompanySiteLiveActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

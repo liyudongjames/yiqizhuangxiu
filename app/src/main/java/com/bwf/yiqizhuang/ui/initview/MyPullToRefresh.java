@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bwf.yiqizhuang.R;
@@ -34,6 +35,7 @@ public class MyPullToRefresh extends LinearLayout{
     private TextView timeText;
     private ImageView arrows;
     private PullToRefreshListener refreshListener;
+    private ProgressBar progressBar;
     private int state = noPulling;
     private float downY;
     private float currentY;
@@ -68,6 +70,7 @@ public class MyPullToRefresh extends LinearLayout{
         stateText = (TextView) header.findViewById(R.id.my_refresh_layout_state_text);
         timeText = (TextView) header.findViewById(R.id.my_refresh_layout_time_text);
         arrows = (ImageView) header.findViewById(R.id.my_refresh_layout_arrow);
+        progressBar = (ProgressBar) header.findViewById(R.id.my_refresh_pb);
         addView(header);
         setOrientation(VERTICAL);
         headerHeight = header.getHeight();
@@ -77,8 +80,15 @@ public class MyPullToRefresh extends LinearLayout{
                 View.MeasureSpec.UNSPECIFIED);
         header.measure(w, h);
         headerHeight = header.getMeasuredHeight();
-        hideHead();
+        setPadding(0,-headerHeight,0,0);
+//        hideHead();
+    }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+//        View view = getChildAt(0);
+//        view.setTop(-headerHeight);
     }
 
     private static final int noPulling = 0;
@@ -86,6 +96,7 @@ public class MyPullToRefresh extends LinearLayout{
         state = noPulling;
         stateText.setText("一起装修网，省钱有保障");
         timeText.setVisibility(View.VISIBLE);
+        arrows.setVisibility(View.VISIBLE);
     }
     private static final int isPulling = 1;
     public void goToIsPulling(){
@@ -103,11 +114,15 @@ public class MyPullToRefresh extends LinearLayout{
         state = isRefreshing;
         stateText.setText("正在刷新");
         timeText.setVisibility(View.INVISIBLE);
+        arrows.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
     }
+
     private static final int freshingComplete = 4;
     public void goToFreshingComplete(){
         state = freshingComplete;
         stateText.setText("刷新成功");
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -175,14 +190,14 @@ public class MyPullToRefresh extends LinearLayout{
                         goToIsPulling();
                         break;
                     case isPulling:
-                        if(getScrollY() < 0)
+                        if(getScrollY() < -headerHeight)
                             goToCanPulling();
                         if(getScrollY() >= headerHeight)
                             return false;
                         scrollBy(0, (int) (-scaleY));
                         break;
                     case canPulling:
-                        if(getScrollY() > 0) {
+                        if(getScrollY() > -headerHeight) {
                             goToIsPulling();
                             smoothRotateArrow();
                         }
@@ -215,6 +230,7 @@ public class MyPullToRefresh extends LinearLayout{
                     case canPulling:
                         goToIsRefreshing();
                         smoothRefreshing();
+//                        isRefreshing();
                         break;
                 }
                 break;
@@ -227,23 +243,20 @@ public class MyPullToRefresh extends LinearLayout{
         if(refreshListener!= null){
             refreshListener.onRefreshing();
         }
-        goToFreshingComplete();
-        refreshingComplete();
     }
 
     public void refreshingComplete(){
-        smoothHideHead();
-    }
-
-    public void hideHead(){
-        scrollTo(0,headerHeight);
+        if(state == isRefreshing) {
+            goToFreshingComplete();
+            smoothHideHead();
+        }
     }
 
     private ValueAnimator refreshAnimator;
     private void smoothRefreshing(){
         smoothRotateArrow();
         refreshAnimator = ValueAnimator
-                .ofFloat((getScrollY()),0)
+                .ofFloat((getScrollY()),-headerHeight)
                 .setDuration(500);
         refreshAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -279,7 +292,7 @@ public class MyPullToRefresh extends LinearLayout{
     ValueAnimator hideAnimator;
     private void smoothHideHead(){
         hideAnimator = ValueAnimator
-                .ofFloat((getScrollY()), headerHeight)
+                .ofFloat((getScrollY()), 0)
                 .setDuration(500);
         hideAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

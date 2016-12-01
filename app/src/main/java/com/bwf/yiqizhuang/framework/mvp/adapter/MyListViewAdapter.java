@@ -2,6 +2,7 @@ package com.bwf.yiqizhuang.framework.mvp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,7 @@ public class MyListViewAdapter extends BaseAdapter {
         }
         holder.companyListViewItemArea.setText(datas.get(position).getOrderHouse().getCommunity());
         holder.companyListViewItemHouseStyle.setText(datas.get(position).getOrderHouse().getLayout());
+        Log.d("MyListViewAdapter", datas.get(position).getImageUrl());
         holder.companyListViewItemImg.setImageURI(datas.get(position).getImageUrl());
         return convertView;
     }

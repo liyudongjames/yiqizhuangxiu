@@ -37,9 +37,15 @@ public class BaseViewHolder extends RecyclerView.ViewHolder{
         return this;
     }
 
-    public BaseViewHolder setImage(int viewId, Bitmap bitmap){
+    public BaseViewHolder setImageBitmap(int viewId, Bitmap bitmap){
         ImageView img = getView(viewId);
         img.setImageBitmap(bitmap);
+        return this;
+    }
+
+    public BaseViewHolder setImageResource(int viewId,int resource){
+        ImageView img = getView(viewId);
+        img.setImageResource(resource);
         return this;
     }
 
@@ -48,4 +54,11 @@ public class BaseViewHolder extends RecyclerView.ViewHolder{
         draweeView.setImageURI(uri);
         return this;
     }
+
+    public BaseViewHolder setBackGroundColor(int viewId,int color){
+        View view = getView(viewId);
+        view.setBackgroundColor(color);
+        return this;
+    }
+
 }
