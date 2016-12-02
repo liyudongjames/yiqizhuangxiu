@@ -24,6 +24,9 @@
         <activity android:name=".ui.activity.HtmlNewActivity"></activity>
         <activity android:name=".ui.activity.HtmlOldActivity"></activity>
         <activity android:name=".ui.activity.CompanySiteLiveActivity"></activity>
+        <activity android:name=".ui.activity.YiqiTeamActivity"></activity>
+        <activity android:name=".ui.activity.SchoolActivity"></activity>
+        <activity android:name=".ui.activity.CityActivity"></activity>
     </application>
 
 </manifest>

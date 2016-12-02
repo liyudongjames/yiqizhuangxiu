@@ -191,5 +191,13 @@ public class CompanyActivity extends BaseActivity implements CompanyViewPagerVie
             }
         });
 
+        companyActivityYiqiGroupLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyActivity.this,YiqiTeamActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

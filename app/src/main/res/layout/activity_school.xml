@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/company_activity_return_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/btn_new_back_nor" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/school_activity_main_tabLayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        </android.support.design.widget.TabLayout>
+
+        <ImageView
+            android:id="@+id/school_activity_tab_nor"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/school_tab_nor" />
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/school_activity_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

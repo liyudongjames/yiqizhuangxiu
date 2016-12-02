@@ -302,4 +302,9 @@ public class GuideActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+    }
 }

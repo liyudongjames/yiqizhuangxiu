@@ -293,7 +293,8 @@ public class MyPullToRefresh extends LinearLayout{
     private void smoothHideHead(){
         hideAnimator = ValueAnimator
                 .ofFloat((getScrollY()), 0)
-                .setDuration(500);
+                .setDuration(1000);
+
         hideAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -301,6 +302,7 @@ public class MyPullToRefresh extends LinearLayout{
                 scrollTo(0, (int) scale);
             }
         });
+
         hideAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {

@@ -32,6 +32,7 @@ import com.bwf.yiqizhuang.framework.mvp.view.MainViewPagerView;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.FullyLinearLayoutManager;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.PagerDotIndicator;
 import com.bwf.yiqizhuang.ui.activity.CompanyActivity;
+import com.bwf.yiqizhuang.ui.activity.SchoolActivity;
 import com.bwf.yiqizhuang.ui.initview.MyPullToRefresh;
 import com.bwf.yiqizhuang.ui.initview.MyScrollView;
 
@@ -118,11 +119,19 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
         fragmentMainPullRefresh.setOnRefreshListener(new MyPullToRefresh.PullToRefreshListener() {
             @Override
             public void onRefreshing() {
+
+//                fragmentMainPullRefresh.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        fragmentMainPullRefresh.refreshingComplete();
+//                    }
+//                },2000);
+
                 presenter.getData();
                 presenter1.getMoreData(1218226, 3);
             }
         });
-
+//
         fragmentMainScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
             @Override
             public void onScroll(int l, int t, int oldl, int oldt) {
@@ -166,6 +175,7 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
     @Override
     public void showView(FontPagePagerResponse response) {
         this.response = response;
+
     }
 
     @Override
@@ -223,6 +233,14 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(getActivity(), CompanyActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        fragmentMainFeatureSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(getActivity(), SchoolActivity.class);
                 getActivity().startActivity(intent);
             }
         });
