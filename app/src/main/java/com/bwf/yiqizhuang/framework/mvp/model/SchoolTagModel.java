@@ -7,5 +7,5 @@ import com.bwf.yiqizhuang.framework.mvp.model.Callback.ModelBaseCallBack;
  */
 
 public interface SchoolTagModel {
-    void getTag(ModelBaseCallBack<String> callBack);
+    void getTag(ModelBaseCallBack<String> callBack,int tag);
 }

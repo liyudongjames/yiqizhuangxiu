@@ -13,14 +13,20 @@ import com.bwf.yiqizhuang.framework.mvp.view.SchoolTagView;
 public class SchoolTagPresenterImpl extends BasePresenter<SchoolTagView> implements ModelBaseCallBack<String>{
 
     private SchoolTagModel model;
+    private int tag;
+
     public SchoolTagPresenterImpl(){
         model = new SchoolTagModelImpl();
+    }
+
+    public void setTag(int tag) {
+        this.tag = tag;
     }
 
     @Override
     public void startData() {
         t.beforeShow();
-        model.getTag(this);
+        model.getTag(this,tag);
     }
 
     @Override

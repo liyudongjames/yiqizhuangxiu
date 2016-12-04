@@ -16,9 +16,14 @@
             android:src="@mipmap/btn_new_back_nor" />
 
         <android.support.design.widget.TabLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/school_activity_main_tabLayout"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/darker_green"
+            app:tabTextColor="@android:color/black"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:layout_height="match_parent">
         </android.support.design.widget.TabLayout>
 
