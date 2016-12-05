@@ -32,6 +32,7 @@ import com.bwf.yiqizhuang.framework.mvp.view.MainRecyclerView;
 import com.bwf.yiqizhuang.framework.mvp.view.MainViewPagerView;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.FullyLinearLayoutManager;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.PagerDotIndicator;
+import com.bwf.yiqizhuang.ui.activity.CityActivity;
 import com.bwf.yiqizhuang.ui.activity.CompanyActivity;
 import com.bwf.yiqizhuang.ui.activity.ResultPicActivity;
 import com.bwf.yiqizhuang.ui.activity.SchoolActivity;
@@ -259,6 +260,14 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
             @Override
             public void onClick(View view) {
                 Intent intent  = new Intent(getActivity(), ResultPicActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        fragmentMainFeatureActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getActivity(), CityActivity.class);
                 getActivity().startActivity(intent);
             }
         });
