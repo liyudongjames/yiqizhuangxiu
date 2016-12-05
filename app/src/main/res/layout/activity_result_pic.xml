@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/result_activity_return_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/btn_new_back_nor" />
+
+        <android.support.design.widget.TabLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/result_activity_main_tabLayout"
+            app:tabSelectedTextColor="@color/darker_green"
+            app:tabTextColor="@android:color/black"
+            app:tabIndicatorColor="@color/darker_green"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_height="match_parent">
+        </android.support.design.widget.TabLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray"></View>
+    </RelativeLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_result_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

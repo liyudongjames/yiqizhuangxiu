@@ -21,6 +21,7 @@ import com.bwf.yiqizhuang.R;
 import com.bwf.yiqizhuang.framework.mvp.adapter.MainRecyclerViewAdapter;
 import com.bwf.yiqizhuang.framework.mvp.adapter.MainViewPagerAdapter;
 import com.bwf.yiqizhuang.framework.mvp.base.BaseFragment;
+import com.bwf.yiqizhuang.framework.mvp.databean.BuildingMaterialActivity;
 import com.bwf.yiqizhuang.framework.mvp.databean.FontPagePagerResponse;
 import com.bwf.yiqizhuang.framework.mvp.databean.MainRecyclerViewResponse;
 import com.bwf.yiqizhuang.framework.mvp.presenter.MainRecyclerViewPresenter;
@@ -32,6 +33,7 @@ import com.bwf.yiqizhuang.framework.mvp.view.MainViewPagerView;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.FullyLinearLayoutManager;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.PagerDotIndicator;
 import com.bwf.yiqizhuang.ui.activity.CompanyActivity;
+import com.bwf.yiqizhuang.ui.activity.ResultPicActivity;
 import com.bwf.yiqizhuang.ui.activity.SchoolActivity;
 import com.bwf.yiqizhuang.ui.initview.MyPullToRefresh;
 import com.bwf.yiqizhuang.ui.initview.MyScrollView;
@@ -241,6 +243,22 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(getActivity(), SchoolActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        fragmentMainFeatureCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getActivity(), BuildingMaterialActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        fragmentMainFeatureRenderingsNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getActivity(), ResultPicActivity.class);
                 getActivity().startActivity(intent);
             }
         });

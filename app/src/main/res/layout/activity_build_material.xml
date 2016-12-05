@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
 
-    <GridView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></GridView>
+        android:layout_height="50dp"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/company_activity_return_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/btn_new_back_nor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="建材家居"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.bwf.yiqizhuang.ui.initview.MyGridView
+            android:background="@android:color/white"
+            android:id="@+id/activity_building_material_Grid"
+            android:layout_width="match_parent"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <com.bwf.yiqizhuang.ui.initview.MyGridView
+                android:background="@android:color/white"
+                android:id="@+id/activity_building_furniture_Grid"
+                android:layout_width="match_parent"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.bwf.yiqizhuang.ui.initview.MyGridView
+                android:background="@android:color/white"
+                android:id="@+id/activity_building_electric_Grid"
+                android:layout_width="match_parent"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.bwf.yiqizhuang.ui.initview.MyGridView
+                android:background="@android:color/white"
+                android:id="@+id/activity_building_fully_Grid"
+                android:layout_width="match_parent"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

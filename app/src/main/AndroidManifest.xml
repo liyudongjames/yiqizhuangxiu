@@ -27,6 +27,8 @@
         <activity android:name=".ui.activity.YiqiTeamActivity"></activity>
         <activity android:name=".ui.activity.SchoolActivity"></activity>
         <activity android:name=".ui.activity.CityActivity"></activity>
+        <activity android:name=".framework.mvp.databean.BuildingMaterialActivity"></activity>
+        <activity android:name=".ui.activity.ResultPicActivity"></activity>
     </application>
 
 </manifest>

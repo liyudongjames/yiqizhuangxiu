@@ -8,6 +8,7 @@ import com.bwf.yiqizhuang.framework.mvp.base.BaseFragment;
  */
 
 public class MineFragment extends BaseFragment{
+
     @Override
     protected int getContentViewResId() {
         return R.layout.fragment_mine;

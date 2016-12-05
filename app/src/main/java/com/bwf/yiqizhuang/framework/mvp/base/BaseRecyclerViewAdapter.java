@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bwf.yiqizhuang.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,10 +98,13 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
     @Override
     public int getItemViewType(int position) {
         if(isHeaderView(position)){
+            LogUtils.log("Base_Header_type"+HEADER);
             return HEADER;
         }else if(isFooterView(position)){
+            LogUtils.log("Base_Footer_type"+FOOTER);
             return FOOTER;
         }else{
+            LogUtils.log("Base_Normal_type"+FOOTER);
             return getMyItemViewType(position);
         }
     }
@@ -120,11 +125,13 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         if (headerView != null) {
             count++;
         }
+        LogUtils.log("Base_Count"+count);
         return count;
     }
 
     public void addHeadView(View headView) {
         if(headView == null) {
+            LogUtils.log("add_Header");
             this.headerView = headView;
             notifyItemInserted(0);
         }
@@ -132,8 +139,10 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
 
     public void addFooterView(View footerView){
         if(footerView == null) {
+            LogUtils.log("add_Footer");
             this.footerView = footerView;
-            notifyItemInserted(getItemCount());
+//            notifyItemInserted(getItemCount());
+            notifyDataSetChanged();
         }
     }
 
