@@ -42,4 +42,5 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.14.1'
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile project(':lib-zxing')
 }

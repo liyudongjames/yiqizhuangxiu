@@ -41,6 +41,7 @@ import com.bwf.yiqizhuang.ui.activity.ResultPicActivity;
 import com.bwf.yiqizhuang.ui.activity.SchoolActivity;
 import com.bwf.yiqizhuang.ui.initview.MyPullToRefresh;
 import com.bwf.yiqizhuang.ui.initview.MyScrollView;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,6 +98,7 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
     private PopupWindow popupWindow;
     private LayoutInflater inflater;
     private View popupView;
+    private final int REQUEST_CODE = 1010;
 
     @Override
     protected int getContentViewResId() {
@@ -301,5 +303,15 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
             }
         });
 
+        fragmentMainTitleScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
     }
+
 }
