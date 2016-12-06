@@ -9,4 +9,5 @@
     <color name="darker_green">#2E8B57</color>
     <color name="light_green">#228B22</color>
     <color name="light_gray">#CCCCCC</color>
+    <color name="lucency">#00000000</color>
 </resources>

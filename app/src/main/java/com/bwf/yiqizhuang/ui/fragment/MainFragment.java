@@ -8,12 +8,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ import com.bwf.yiqizhuang.framework.mvp.view.MainRecyclerView;
 import com.bwf.yiqizhuang.framework.mvp.view.MainViewPagerView;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.FullyLinearLayoutManager;
 import com.bwf.yiqizhuang.framework.mvp.weidgt.PagerDotIndicator;
+import com.bwf.yiqizhuang.ui.activity.BudgetActivity;
 import com.bwf.yiqizhuang.ui.activity.CityActivity;
 import com.bwf.yiqizhuang.ui.activity.CompanyActivity;
 import com.bwf.yiqizhuang.ui.activity.ResultPicActivity;
@@ -91,6 +94,9 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
     private MainRecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager layoutManager;
     private MainRecyclerViewResponse recyclerResponse;
+    private PopupWindow popupWindow;
+    private LayoutInflater inflater;
+    private View popupView;
 
     @Override
     protected int getContentViewResId() {
@@ -102,6 +108,14 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
         int color = Color.argb(0,17,128,10);
         fragmentMainTitleLinearLayout.setBackgroundColor(color);
         setClick();
+        inflater = LayoutInflater.from(getActivity());
+        popupView = inflater.inflate(R.layout.main_popupwindow_view,null,false);
+        popupWindow = new PopupWindow(getActivity());
+        popupWindow.setContentView(popupView);
+        popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.color.light_green));
+        popupWindow.setFocusable(true);
     }
 
     private boolean isAlph;
@@ -232,6 +246,13 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
     }
 
     private void setClick(){
+        fragmentMainTitleLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindow.showAsDropDown(fragmentMainTitleLinearLayout);
+            }
+        });
+
         fragmentMainFeaturePackageNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,5 +292,14 @@ public class MainFragment extends BaseFragment implements MainViewPagerView<Font
                 getActivity().startActivity(intent);
             }
         });
+
+        fragmentMainFeatureMyBudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getActivity(), BudgetActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
     }
 }
