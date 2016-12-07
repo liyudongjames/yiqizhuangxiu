@@ -1,5 +1,6 @@
 package com.bwf.yiqizhuang.framework.mvp.databean;
 
+import android.util.Log;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -41,7 +42,9 @@ public class BuildingMaterialActivity extends BaseActivity implements BuildingVi
         presetner = new BuildingPresetnerImpl();
         presetner.attachView(this);
         presetner.startData();
+        Log.d("123123", "initDa3tas: 1231231");
     }
+
 
     @Override
     protected void initViews() {

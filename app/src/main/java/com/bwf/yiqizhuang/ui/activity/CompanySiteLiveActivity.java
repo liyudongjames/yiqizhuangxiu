@@ -91,17 +91,16 @@ public class CompanySiteLiveActivity extends BaseActivity implements SiteLiveSta
         companySiteLiveActivityArea.setText(response.getData().getOrderHouse().getCommunity());
         companySiteLiveActivityHouseStyle.setText(response.getData().getOrderHouse().getLayout());
         companySiteLiveActivityImg.setImageURI(response.getData().getImageUrl());
-        for (int i = 0; i < response.getData().getMembers().size(); i++) {
+        for (int i = 0; i < jobs.length; i++) {
             View view = inflater.inflate(R.layout.site_live_activity_member_item, null);
             TextView name = (TextView) view.findViewById(R.id.site_live_member_item_name_tx);
             name.setText(response.getData().getMembers().get(i).getRealName());
             TextView job = (TextView) view.findViewById(R.id.site_live_member_item_job_tx);
-            job.setText(jobs[i]);
+            job.setText(jobs[i]+"");
             SimpleDraweeView img = (SimpleDraweeView) view.findViewById(R.id.site_live_member_item_header_img);
             if (response.getData().getMembers().get(i).getAvatar() != null) {
                 img.setImageURI(response.getData().getMembers().get(i).getAvatar());
             } else {
-                img.setBackgroundResource(R.mipmap.dis_jianli);
             }
             view.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,

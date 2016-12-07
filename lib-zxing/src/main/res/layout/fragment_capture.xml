@@ -51,10 +51,10 @@
     </LinearLayout>
 
     <TextView
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/viewfinder_view"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
         android:textColor="@android:color/white"
         android:text="将二维码放入框内，即可自动扫描"/>
 

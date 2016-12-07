@@ -28,6 +28,12 @@
             android:textSize="18dp" />
     </RelativeLayout>
 
+    <View
+        android:background="@color/light_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        ></View>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -38,48 +44,49 @@
             android:layout_height="match_parent">
 
         <com.bwf.yiqizhuang.ui.initview.MyGridView
-            android:background="@android:color/white"
+            android:background="@color/light_gray"
             android:id="@+id/activity_building_material_Grid"
             android:layout_width="match_parent"
             android:numColumns="3"
+            android:listSelector="@null"
             android:stretchMode="columnWidth"
             android:layout_height="wrap_content"
-            android:horizontalSpacing="1dp"
-            android:verticalSpacing="1dp"
+            android:horizontalSpacing="0.5dp"
+            android:verticalSpacing="0.5dp"
             android:layout_marginBottom="10dp"
             />
 
         <com.bwf.yiqizhuang.ui.initview.MyGridView
-                android:background="@android:color/white"
+                android:background="@color/light_gray"
                 android:id="@+id/activity_building_furniture_Grid"
                 android:layout_width="match_parent"
                 android:numColumns="3"
                 android:stretchMode="columnWidth"
                 android:layout_height="wrap_content"
-                android:horizontalSpacing="1dp"
-                android:verticalSpacing="1dp"
+                android:horizontalSpacing="0.5dp"
+                android:verticalSpacing="0.5dp"
                 android:layout_marginBottom="10dp"/>
 
             <com.bwf.yiqizhuang.ui.initview.MyGridView
-                android:background="@android:color/white"
+                android:background="@color/light_gray"
                 android:id="@+id/activity_building_electric_Grid"
                 android:layout_width="match_parent"
                 android:numColumns="3"
                 android:stretchMode="columnWidth"
                 android:layout_height="wrap_content"
-                android:horizontalSpacing="1dp"
-                android:verticalSpacing="1dp"
+                android:horizontalSpacing="0.5dp"
+                android:verticalSpacing="0.5dp"
                 android:layout_marginBottom="10dp"/>
 
             <com.bwf.yiqizhuang.ui.initview.MyGridView
-                android:background="@android:color/white"
+                android:background="@color/light_gray"
                 android:id="@+id/activity_building_fully_Grid"
                 android:layout_width="match_parent"
                 android:numColumns="3"
                 android:stretchMode="columnWidth"
                 android:layout_height="wrap_content"
-                android:horizontalSpacing="1dp"
-                android:verticalSpacing="1dp"/>
+                android:horizontalSpacing="0.5dp"
+                android:verticalSpacing="0.5dp"/>
         </LinearLayout>
     </ScrollView>
 

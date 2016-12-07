@@ -23,6 +23,7 @@ public class GridAdapter extends BaseAdapter {
     private int blankPage;
     private int count;
 
+
     public GridAdapter(BuildingResponse.DataBean dataBean, Context context){
         this.dataBean = dataBean;
         inflater = LayoutInflater.from(context);
